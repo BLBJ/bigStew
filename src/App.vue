@@ -11,9 +11,9 @@
     </div>
     <!-- <div class="head">
         <span>怀揣梦想</span>
-    </div> -->
-    <div class="foot"  v-show="showFoot">
-        <span :style="{color}">记录点滴，收获成长</span>
+    </div>-->
+    <div class="foot" v-show="showFoot">
+      <span :style="{color}">记录点滴，收获成长</span>
     </div>
   </div>
 </template>
@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       tree: "",
-      showFoot:false,
-      color:'#ffffff'
+      showFoot: false,
+      color: "#ffffff"
     };
   },
   mounted() {
@@ -41,7 +41,10 @@ export default {
         width: innerWidth,
         height: innerHeight,
         start: true,
-        cb:()=>{ self.showFoot = true;self.color = this.tree.color}
+        cb: () => {
+          self.showFoot = true;
+          self.color = this.tree.color;
+        }
       });
     },
     startDraw() {
@@ -124,22 +127,22 @@ html {
     border-left: 3px solid transparent;
     border-top: 3px solid transparent;
   }
-  .head{
-     position: absolute;
-      left: 50%;
-      bottom: 3px;
-      font-size: 13px;
-       transform: translateX(-110%);
-       color: #ffffff;
+  .head {
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    font-size: 13px;
+    transform: translateX(-110%);
+    color: #ffffff;
   }
-  .foot{
-      position: absolute;
-      left: 53%;
-      bottom: 3px;
-      font-size: 13px;
-      color: #ffffff;
-      transform: translateX(20px);
-      filter: brightness(.9);
+  .foot {
+    position: absolute;
+    left: 53%;
+    bottom: 3px;
+    font-size: 13px;
+    color: #ffffff;
+    transform: translateX(20px);
+    filter: brightness(0.9);
   }
 }
 </style>
