@@ -9,6 +9,12 @@
       <a target="_blank" href>所做</a>
       <span class="prompt">作品预览</span>
     </div>
+    <!-- <div class="head">
+        <span>怀揣梦想</span>
+    </div> -->
+    <div class="foot"  v-show="showFoot">
+        <span :style="{color}">记录成长的点滴~</span>
+    </div>
   </div>
 </template>
 
@@ -19,7 +25,9 @@ export default {
   components: {},
   data() {
     return {
-      tree: ""
+      tree: "",
+      showFoot:false,
+      color:'#ffffff'
     };
   },
   mounted() {
@@ -27,11 +35,13 @@ export default {
   },
   methods: {
     init() {
+      let self = this;
       let { innerWidth, innerHeight } = window;
       this.tree = drawInit("#treecanvas", {
         width: innerWidth,
         height: innerHeight,
-        start: true
+        start: true,
+        cb:()=>{ self.showFoot = true;self.color = this.tree.color}
       });
     },
     startDraw() {
@@ -72,14 +82,14 @@ html {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     cursor: pointer;
     box-sizing: border-box;
     transition: 0.5s;
     a {
       text-decoration: none;
-      font-size: 60px;
+      font-size: 50px;
       letter-spacing: 10px;
       font-weight: 500;
       color: #ffffff;
@@ -111,6 +121,23 @@ html {
     transform: translate(0, 30%);
     border-left: 3px solid transparent;
     border-top: 3px solid transparent;
+  }
+  .head{
+     position: absolute;
+      left: 50%;
+      bottom: 3px;
+      font-size: 13px;
+       transform: translateX(-110%);
+       color: #ffffff;
+  }
+  .foot{
+      position: absolute;
+      left: 54%;
+      bottom: 3px;
+      font-size: 13px;
+      color: #ffffff;
+      transform: translateX(20px);
+      // filter: brightness(.5);
   }
 }
 </style>

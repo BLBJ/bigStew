@@ -80,7 +80,9 @@ class Tree {
     this.stat = { fork: 0, length: 0 };
     this.branches = [];
     this.timer = null;
+    this.color = obj.color;
     this.start = obj.start !== undefined ? obj.start : true;
+    this.cb = obj.cb || (()=>undefined);
   }
 
   //添加分支
@@ -167,6 +169,8 @@ class Branch {
     this.length += this.v.length();
     this.r *= 0.99;
     this.v.rotate(Util.random(-angle, angle));
+
+    //结束
     if (this.r < 0.8 || this.generation > 10) {
       this.tree.removeBranch(this);
       //add leaf
@@ -177,6 +181,7 @@ class Branch {
       });
 
       l.render();
+      this.tree.cb && this.tree.cb();
     }
   }
 
@@ -184,7 +189,7 @@ class Branch {
   fork() {
     let p = this.length - Util.random(100, 200);
     if (p > 0) {
-      let n = Math.round(Util.random(1, 4));
+      let n = Math.round(Util.random(2, 4));
       this.tree.stat.fork += n - 1;
       for (let i = 0; i < n; i++) {
         this.clone(this);
@@ -213,7 +218,7 @@ class Branch {
 }
 
 let drawInit = ($ele, options = {}) => {
-  let { width, height, start } = options;
+  let { width, height, start,cb=()=>undefined } = options;
 
   let center_x = width / 2,
     stretch = 600/height,
@@ -228,14 +233,16 @@ let drawInit = ($ele, options = {}) => {
   $canvas.height = height;
   let ctx = $canvas.getContext("2d");
   ctx.globalCompositeOperation = "lighter";
-  let tree = new Tree({ start });
+  let color = Util.randomrgba(0, 255, .8);
+  let tree = new Tree({ start,cb,color });
   tree.init(ctx);
+ 
   new Branch({
     p: new Vector(center_x, height),
     v: new Vector(Util.random(-1, 1), -y_speed),
     r: 15 / stretch,
-    c: Util.randomrgba(0, 255, 0.3),
-    t: tree,
+    c:color,
+    t: tree
   });
   tree.render();
   return tree;
