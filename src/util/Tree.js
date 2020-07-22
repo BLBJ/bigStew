@@ -167,12 +167,13 @@ class Branch {
     let angle = 0.18 - 0.1 / this.generation;
     this.p.add(this.v);
     this.length += this.v.length();
-    this.r *= 0.99;
+    this.r *= 0.989;
     this.v.rotate(Util.random(-angle, angle));
 
     //结束
-    if (this.r < 0.8 || this.generation > 10) {
+    if (this.r < 0.8 || this.generation > 7) {
       this.tree.removeBranch(this);
+     
       //add leaf
       let l = new Leaf({
         p: this.p,
@@ -181,6 +182,7 @@ class Branch {
       });
 
       l.render();
+      // clearInterval(this.tree.timer);
       this.tree.cb && this.tree.cb();
     }
   }
@@ -189,7 +191,8 @@ class Branch {
   fork() {
     let p = this.length - Util.random(100, 200);
     if (p > 0) {
-      let n = Math.round(Util.random(2, 4));
+      
+      let n = this.generation>2 ? Math.round(Util.random(1, 3)): 3;
       this.tree.stat.fork += n - 1;
       for (let i = 0; i < n; i++) {
         this.clone(this);
@@ -239,11 +242,12 @@ let drawInit = ($ele, options = {}) => {
  
   new Branch({
     p: new Vector(center_x, height),
-    v: new Vector(Util.random(-1, 1), -y_speed),
-    r: 15 / stretch,
+    v: new Vector(0, -y_speed),
+    r: 14 / stretch,
     c:color,
     t: tree
   });
+
   tree.render();
   return tree;
 };

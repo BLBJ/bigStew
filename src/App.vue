@@ -13,7 +13,7 @@
         <span>怀揣梦想</span>
     </div> -->
     <div class="foot"  v-show="showFoot">
-        <span :style="{color}">记录成长的点滴~</span>
+        <span :style="{color}">记录点滴，收获成长</span>
     </div>
   </div>
 </template>
@@ -89,7 +89,7 @@ html {
     transition: 0.5s;
     a {
       text-decoration: none;
-      font-size: 50px;
+      font-size: 40px;
       letter-spacing: 10px;
       font-weight: 500;
       color: #ffffff;
@@ -98,8 +98,10 @@ html {
       font-size: 14px;
       color: #ffffff;
       transform: translateY(-5px);
-      transition: 0.5s;
+      transition: 0.3s;
       opacity: 0;
+      margin-top: 15px;
+      letter-spacing: 4px;
     }
     &:hover {
       border-color: #ffffff;
@@ -132,12 +134,12 @@ html {
   }
   .foot{
       position: absolute;
-      left: 54%;
+      left: 53%;
       bottom: 3px;
       font-size: 13px;
       color: #ffffff;
       transform: translateX(20px);
-      // filter: brightness(.5);
+      filter: brightness(.9);
   }
 }
 </style>
