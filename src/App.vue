@@ -3,9 +3,11 @@
     <canvas class="canvas" id="treecanvas"></canvas>
     <div class="title_left box">
       <a target="_blank" href="http://localhost:8080/">所思</a>
+      <span class="prompt">博客、文章</span>
     </div>
     <div class="title_right box">
       <a target="_blank" href>所做</a>
+      <span class="prompt">作品预览</span>
     </div>
   </div>
 </template>
@@ -25,8 +27,8 @@ export default {
   },
   methods: {
     init() {
-      let {innerWidth,innerHeight} = window;
-      this.tree = drawInit('#treecanvas',{
+      let { innerWidth, innerHeight } = window;
+      this.tree = drawInit("#treecanvas", {
         width: innerWidth,
         height: innerHeight,
         start: true
@@ -36,7 +38,7 @@ export default {
       this.tree.start = true;
     },
     stopDraw() {
-        this.tree.start = false;
+      this.tree.start = false;
     }
   }
 };
@@ -64,14 +66,17 @@ html {
   .box {
     width: 200px;
     height: 175px;
-    border: 3px solid #ffffff;;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 40%;
     left: 50%;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.5s;
     a {
       text-decoration: none;
       font-size: 60px;
@@ -79,15 +84,33 @@ html {
       font-weight: 500;
       color: #ffffff;
     }
+    .prompt {
+      font-size: 14px;
+      color: #ffffff;
+      transform: translateY(-5px);
+      transition: 0.5s;
+      opacity: 0;
+    }
+    &:hover {
+      border-color: #ffffff;
+      .prompt {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
-  .canvas{
+  .canvas {
     filter: brightness(0.4);
   }
   .title_left {
     transform: translate(-101%, -30%);
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
   }
   .title_right {
     transform: translate(0, 30%);
+    border-left: 3px solid transparent;
+    border-top: 3px solid transparent;
   }
 }
 </style>
