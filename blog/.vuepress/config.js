@@ -1,30 +1,40 @@
 module.exports = {
-  theme: '@vuepress/blog',
-  title: '丁文博',
-  description: 'Just do it',
+  theme: "@vuepress/blog",
+  title: "丁文博",
+  description: "Just do it",
   themeConfig: {
     nav: [
-      { text: '技术', link: '/' },
-      { text: '生活随笔', link: '/essay/' },
-      { text: '标签', link: '/tag/' },
-      { text: '摄影', link: '/photography/' },
-      { text: 'github', link: 'https://github.com/BLBJ' },
-    ]
-  },
-  directories: [
-    {
-      id: 'post',
-      dirname: '_posts',
-      path: '/',
-      // itemPermalink: '/posts/:year/:month/:day/:slug'
+      { text: "前端", link: "/post/" },
+      { text: "随笔", link: "/writing/" },
+      { text: "类别", link: "/tag/" },
+      { text:"github",link:"https://github.com/BLBJ"}
+    ],
+    directories: [
+      {
+        id: 'post',
+        dirname: '_posts',
+        path: '/post/',
+      },
+      {
+        id: "writing",
+        dirname: "_writing",
+        path: "/writing/",
+        // itemPermalink: '/posts/:year/:month/:day/:slug'
+      },
+    ],
+    footer: {
+      contact: [
+        {
+          type: "github",
+          link: "https://github.com/BLBJ",
+        }
+      ],
+      copyright: [
+        {
+          text: "Copyright © 2018-present wbding",
+          link: "",
+        },
+      ],
     },
-    {
-      id: 'essay',
-      dirname: '_essays',
-      path: '/essay/',
-      title:'随笔',
-      
-      // itemPermalink: '/posts/:year/:month/:day/:slug'
-    }
-  ],
-}
+  },
+};

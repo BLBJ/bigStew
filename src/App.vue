@@ -2,11 +2,11 @@
   <div id="app">
     <canvas class="canvas" id="treecanvas"></canvas>
     <div class="title_left box">
-      <a target="_blank" href="http://localhost:8080/">所思</a>
+      <a  href="http://localhost:8081/">所思</a>
       <span class="prompt">博客、文章</span>
     </div>
     <div class="title_right box">
-      <a target="_blank" href>所做</a>
+      <a href="javascript:return false;">所做</a>
       <span class="prompt">作品预览</span>
     </div>
     <!-- <div class="head">
@@ -143,6 +143,7 @@ html {
     color: #ffffff;
     transform: translateX(20px);
     filter: brightness(0.9);
+    transition: 1s;
   }
 }
 </style>
