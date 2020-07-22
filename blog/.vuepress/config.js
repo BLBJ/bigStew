@@ -4,6 +4,7 @@ module.exports = {
   description: "Just do it",
   themeConfig: {
     nav: [
+      { text: "主页", link: "http://localhost:8080/" },
       { text: "前端", link: "/post/" },
       { text: "随笔", link: "/writing/" },
       { text: "类别", link: "/tag/" },
