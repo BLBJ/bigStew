@@ -2,7 +2,7 @@
   <div id="app">
     <canvas class="canvas" id="treecanvas"></canvas>
     <div class="title_left box">
-      <a  href="http://localhost:8081/">所思</a>
+      <a  href="/blog/">所思</a>
       <span class="prompt">博客、文章</span>
     </div>
     <div class="title_right box">
