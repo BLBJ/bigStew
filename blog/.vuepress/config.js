@@ -3,12 +3,17 @@ module.exports = {
   theme: require.resolve('./theme/'), // 使用自定义主题
   title: "wbding",
   description: "博客 技术 文章",
+
+  head: [
+    ['link', { rel: 'icon', href: `/tree.ico` }]
+  ],
+
   themeConfig: {
     nav: [
       { text: "前端", link: "/post/" },
       { text: "随笔", link: "/writing/" },
       { text: "类别", link: "/tag/" },
-      { text:"github",link:"https://github.com/BLBJ"}
+      { text: "github", link: "https://github.com/BLBJ" }
     ],
     directories: [
       { // 主页配置，自定义主题就是为了这
@@ -37,13 +42,13 @@ module.exports = {
           link: "https://github.com/BLBJ",
         },
         {
-          type:"mail",
-          link:"/contact/"
+          type: "mail",
+          link: "/contact/"
         }
       ],
       copyright: [
         {
-          text: "MIT Licensed | Copyright © 2018-present wbding.com",
+          text: "MIT Licensed | Copyright © 2018-present wbding.com | 京ICP备20029688号-1",
           link: "",
         },
       ],
