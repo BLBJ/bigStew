@@ -3,7 +3,6 @@ title: electron session设置
 date: 2020-07-22
 tags: 
   - electron
-  
 author: 丁文博
 location: 北京 
 comment: true
