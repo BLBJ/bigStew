@@ -10,9 +10,9 @@ module.exports = {
 
   themeConfig: {
     nav: [
-      { text: "前端", link: "/post/" },
-      { text: "随笔", link: "/writing/" },
-      { text: "类别", link: "/tag/" },
+      { text: "技术贴文", link: "/post/" },
+      { text: "文章随笔", link: "/writing/" },
+      { text: "类别统计", link: "/tag/" },
       { text: "github", link: "https://github.com/BLBJ" }
     ],
     directories: [
