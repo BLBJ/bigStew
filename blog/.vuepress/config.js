@@ -49,7 +49,7 @@ module.exports = {
       copyright: [
         {
           text: "MIT Licensed | Copyright © 2018-present wbding.com | 京ICP备20029688号-1",
-          link: "",
+          link: "https://beian.miit.gov.cn",
         },
       ],
     },
