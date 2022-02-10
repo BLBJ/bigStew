@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.0",
     "leancloud-storage": "^4.6.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^9.0.2",
     "valine": "^1.4.14",
     "vuepress": "^1.5.2",
